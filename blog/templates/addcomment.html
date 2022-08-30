@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<br>
+
+<div class="container is-fluid">
+<div class="field">
+<form method="POST" action="{{ url_for('addcomment',post_id=post_id)}}">
+  {{ form.csrf_token }}
+  
+  <p>{{ form.body.label }} 
+    {{ form.body (class="textarea is-large", placeholder="Write your comment here!", rows="100") }}</p>
+</div>
+  <input type="submit" value="Submit Comment!", class="button is-link is-primary is-light is-outlined">
+</form>
+</div>
+
+
+
+{% for error in form.body.errors %}
+  <span style="color: red;">[{{ error }}]</span>
+{% endfor %}
+
+
+{% endblock content %}

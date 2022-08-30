@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C1888150</title>
+</head>
+
+<nav class="navbar has-background-success-light	is-spaced	">  
+<div class="navbar-brand">
+    <div class="navbar-item">
+  {% if current_user.is_anonymous %}
+  Hello, guest !
+  {% else %}
+  Hello, {{ current_user.first_name }} !
+  {% endif %}
+</div>
+</div>
+
+<div class="navbar-item">
+<a href="{{ url_for('home') }}" class="button is-link is-primary is-light is-outlined">Home</a>&nbsp
+</div>
+
+
+<div class="navbar-item">
+<a href="{{ url_for('register') }}" class="button is-link is-primary is-light is-outlined">Register</a>
+</div>
+
+<div class="navbar-item">
+<a href="{{ url_for('login') }}" class="button is-link is-primary is-light is-outlined">Login</a>
+</div>
+
+{% if current_user.is_authenticated %}
+<div class="navbar-item">
+<a href="{{ url_for('logout') }}" class="button is-link is-primary is-light is-outlined">Logout</a>
+</div>
+{% endif %}
+
+<div class="navbar-item">
+  <a href="{{ url_for('staticposts') }}" class="button is-link is-primary is-light is-outlined">Static Version of Post "Security"</a>
+  </div>
+
+  <div class="navbar-item">
+    <a href="{{ url_for('quality_usability') }}" class="button is-link is-primary is-light is-outlined">Static Version of Post "Quality..."</a>
+    </div>
+
+</nav>
+
+
+<body>
+
+<div class="container">
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <br>
+  <div class="box has-text-success-dark">
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+{% endwith %}
+</div>
+
+<div class="columns is-flex-direction-column is-fullheight-100vh">
+{% block content %}
+
+
+
+{% endblock %}
+</div>
+</div>
+
+</body>
+  <footer class="footer is-align-items-self-end">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Flask Blog by: C1888150.</strong> <br> Disclaimer: This website is a personal project and the blog is to be used at the risk of the user.
+         Styled using <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">BULMA</a>.
+      </p>
+    </div>
+  </footer>
+</html>

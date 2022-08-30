@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class=container>
+    <br>
+<h1 class="title is-4">Quality and Usability</h1>
+<br>
+<h5 class="subtitle is-5">
+This static page has been created to more easily read the text for the individual posts. If you would like to visit the individual page, read the post stored in the database, and leave a comment please navigate to the second post on the home page via the navigation bar at the top of this web page! </h5> </p>
+
+
+<p>This post discusses quality and usability decisions which were made when designing this site. These illustratively include, designing the navbar, requiring authentication for certain users and the blog’s accessibility.</p>
+
+<br>
+
+<p>The blog has a horizontal navbar along the top of the site for the user to quickly navigate across the Flask blog. The navbar sits across the top of each page on the site allowing easy access through a series of buttons to navigate to the home page, registration page, log in to the site. Once logged in, a button will appear on the navbar, allowing the user to log-out of the site. By using Jinja2, and its ability to ‘extend’ the layout of one HTML file, both the navbar which appears on the top of the site and the footer that appears on the bottom is identical and consistent across all of the blog’s pages. These features provide a familiar and consistent set of navigation tools thus allowing the user to be comforted by the consistency of the webpage’s design.  </p>
+<br>
+
+<p>One usability feature which I implemented, are the buttons for logging out and leaving a comment. This feature only appears when the user is logged in/authenticated. As these features do not show until the user is authenticated there will be no confusion as to which functions can be accessed by guests and ensures only authenticated visitors can leave comments.</p>
+<br>
+
+<p>I decided to style the blog using ‘Bulma’ (Bulma Documentation, 2022), which helped to give the blog a clean and simple look. The visual stylistic choices implemented by Bulma gives the blog a similar User Interface (UI) and design to many other social media and other sites. Therefore, by using Bulma to style the blog, this should reduce any apprehension a new user may feel when browsing and interacting with an unfamiliar site for the first time. This familiarity will hopefully encourage confidence in the site by having intuitive navigational features.</p>
+
+<p>In choosing the visual appearance of the blog some design choices had to be made and accessibility was considered chosen as the primary driver of design. A key feature was to make the blog using a minimal colour palette to increase the colour contrast between the backgrounds and the text. The choice of visual language ensures the text is visible, easy to read and accessible for all users, including those who may have visual impairments. The colour contrasts on this blog were tested using an online colour contrast checker (Colour Contrast, 2022). </p>
+<br>
+
+<p>Finally, one quality issue with this blog that I was unable to resolve was having posts appear on the blog in block text. As they are stored in the database in plaintext, I was unfortunately unable to find a way to add paragraph breaks or line spaces to the text. Therefore, for ease of reading I have also created two static pages where these two posts are displayed with correct paragraph breaks for ease of reading.</p>
+
+
+
+{% endblock content %}

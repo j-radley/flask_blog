@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class=container>
+    <br>
+    <h1 class="title is-4">Security</h1>
+
+    <br>
+    <h5 class="subtitle is-5">
+This static page has been created to more easily read the text for the individual posts. If you would like to visit the individual page, read the post stored in the database, and leave a comment please navigate to the first post on the home page via the navigation bar at the top of this web page! </h5> </p>
+
+
+    <p>This post discusses Flask’s security features. Alongside Flask’s in-built security, such as SQLAlchemy’s automatic parameterisation of queries, there are additional security features on my site to protect against a range of vulnerabilities. </p>
+    <br>
+    
+    <p>As a framework, Flask has many inbuilt functions which are integral to the protection of this blog and by implementing them, the sites security is significantly improved. One of the key security features, Flask’s aptly named Flask-Security, is implemented through each of its inbuilt modules such as its forms. Flask’s-WTForms protects all form-based posts from CSRF (Cross-Site Request Forgery) attacks (Flask-WTForms Documentation, 2022). CSRF attacks may occur when the browser requests include all cookies, which means the site is unable to recognise whether the user request is legitimately authorised or if the request is falsely authenticated. Flask’s documentation describes how this framework protects against these attacks through using “per-session hidden-form-field csrf-tokens” (Flask-WTForms Documentation, 2022), a unique unguessable string enabling Flask to verify that the user is authenticated. Flask implements this level of security without the need for configuration. Furthermore, WTForms also has inbuilt validators which provide functionality to shield from SQL injection. </p>
+    <br>
+    
+    <p>Another security feature provided by this blog protects Users by password hashing. I have implemented Grinberg’s (2014, 2018) method for password hashing. Grinberg uses Werkzeug’s security library to ensure passwords saved in the database are not stored in plaintext. </p>
+    <br>
+    
+    <p>Flask also provides protection against Cross Site Scripting (XSS), which is where arbitrary HTML and Javascript is injected into the site. To protect against this, Flask uses Jinja2 configured to automatically “escape all values” (Flask Documentation, 2022) unless the system is told to do otherwise. This has the effect of stopping any XSS problem which could be created in templates.</p>
+    <br>
+    
+    <p>Whilst Jinja2 is able to defend against XSS attacks by escaping the HTML, it is unable to stop XSS attribute injections. To enable protection against this potential attack all Jinja expressions/attributes should be surrounded by either single or double quotation marks.</p>
+</div>
+
+
+{% endblock content %}
